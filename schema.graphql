@@ -1,0 +1,78 @@
+scalar DateTime
+
+type ObjetoDeAprendizagem {
+     id: ID!,
+     dtdispo: DateTime,
+     tema: String,
+     finalidade: String,
+     atividade: Int,
+     dplataf: Int,
+     dares: Int, 
+     url_ares: Int, 
+     url_youtube: Int, 
+     davasus: Int, 
+     drsociais: Int, 
+     doutros: Int, 
+     tipo: Int, 
+     decs: String, 
+     num: Int
+
+}
+
+type Atividade {
+    id: ID,
+    modalidade: Int,
+    tipo: Int,
+    tema: String,
+    decs: String,
+    moderador: Int,
+    descricao: String,
+    dtdispo: DateTime,
+    hr_inicio: String,
+    hr_termino: String,
+    local: Int,
+    status: Int,
+    participantes: [Participante!]! 
+}
+
+type Participante {
+    id: ID!,
+    cpf: String,
+    cbo: Int,
+    cnes: Int,
+    ine: Int,
+    satisf: Int,
+    dtparti: DateTime
+}
+
+type Estabelecimento {
+    cnes: Int,
+    nome: String,
+    tconsul: Int,
+    tdiagn: Int,
+    teduca: Int,
+}
+
+type Teleconsultoria {
+    dtsol: DateTime,
+    tipo: String,
+    canal: String,
+    scpf: String,
+    scbo: String,
+    scnes: String,
+    cids: [String!],
+    ciaps: [String!],
+    dtresp: DateTime,
+    evenc: String,
+    inenc: String,
+    satisf: String,
+    rduvida: String,
+    psof: String
+}
+
+type Query {
+    objetosDeAprendizagem: [ObjetoDeAprendizagem!]!,
+    atividades: [Atividade!]!,
+    estabelecimentos: [Estabelecimento!]!
+}
+
